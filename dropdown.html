@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- getting it more looked through more resources this -->
+
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<style>
+	a{
+		text-decoration: none;
+		color:white;
+	}
+	body{
+		width:100%;
+	}
+	.menu{
+		position: inline-block;
+		background-color:purple;
+	}
+    .dropdown-content {
+        display: none;
+        position:absolute;
+        list-style-type: none;
+        background-color:  darkorchid;
+        left: -5px;
+        top:12px;
+        }
+    li{
+    	width:105px;
+    }
+      .dropdown-content a{
+      	text-align: left;
+      }
+     .dropdown-btn{
+     	display:inline-block;
+     	padding:10px;
+     }
+     .dropdown-btn:hover .dropdown-btn a{
+     	background-color: red;
+     }
+     .dropdown-btn:hover .dropdown-content{
+     	display: block;
+     }
+     .dropdown-btn, .dropdown-content>li{
+     	display: inline-block;
+            position: relative;
+            width: 100px;
+            border-right: 1px solid orchid;
+            padding: 5px 15px;
+     }
+</style>
+</head>
+<body>
+	<ul class="menu">
+		<li class= "dropdown-btn"><a href="">File</a>
+			<ul class="dropdown-content">
+				<li><a href="">save</a></li>
+				<li><a href="">copy</a></li>
+				<li><a href="">exit</a></li>
+			</ul>
+		</li>
+
+		<li class= "dropdown-btn"><a href="">Edit</a>
+			<ul class="dropdown-content">
+				<li><a href="">Undo</a></li>
+				<li><a href="">Delete</a></li>
+				<li><a href="">Paste</a></li>
+			</ul>
+		</li>
+		<li class= "dropdown-btn"><a href="">Help</a>
+			<ul class="dropdown-content">
+				<li><a href="">Contact</a></li>
+			</ul>
+		</li>
+	</ul>
+</body>
