@@ -1,0 +1,17 @@
+{
+    "name": "webprogamming493",
+    "scripts": {
+        "start": "nodemon server/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dgp0301/WebProgramming493.git"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "express": "4.17.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
+}

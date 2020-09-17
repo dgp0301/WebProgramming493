@@ -1,14 +1,12 @@
-const http = require('http');
-
-const hostname = '127.0.0.1';
+const http = require('express');
+const app = express();
 const port = 3000;
 
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-type', 'text/plain');
-    res.end('Hello World');
-});
-
-server.listen(port, hostname, () =>{
-    console.log('Server running at http://${hostname}:${port}/')
+app.get('/',(req,res) =>{
+    res.send('Hello Hudson Valley! You requested '+ req.url)
 })
+
+app.listen(port,() => {
+    console.log(`Example app listening at http://localhost:${port}`)
+})
+
