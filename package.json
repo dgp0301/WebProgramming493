@@ -1,6 +1,7 @@
 {
     "name": "webprogamming493",
     "scripts": {
+        "dev": "nodemon --watch server/index.js",
         "start": "nodemon server/index.js"
     },
     "repository": {
@@ -9,7 +10,8 @@
     },
     "license": "ISC",
     "dependencies": {
-        "express": "4.17.1"
+        "express": "^4.17.1",
+        "dotenv": "^8.2.0"
     },
     "devDependencies": {
         "nodemon": "^2.0.4"
