@@ -14,7 +14,7 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <router-link to="/" class="navbar-item">Home</router-link> |
+      <router-link to="/" class="navbar-item">Home</router-link> 
       <router-link to="/about"  class="navbar-item">About</router-link>
 
       <div class="navbar-item has-dropdown is-hoverable">
@@ -53,8 +53,7 @@
       </div>
     </div>
   </div>
-</nav>
-  
+    </nav>
 </template>
 
 <script>

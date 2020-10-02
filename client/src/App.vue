@@ -1,7 +1,7 @@
 <template>
 <section class="section">
+    <Nav />
     <div class="container">
-      <Nav />
        <router-view/>
     </div>
   </section>
