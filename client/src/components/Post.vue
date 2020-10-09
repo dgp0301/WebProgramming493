@@ -8,7 +8,7 @@
   <div class="card-content">
     <div class="media">
       <div class="media-left">
-        <figure class="image">
+        <figure class="image is-48x48 ">
           <img :src="post.owner.profile">
         </figure>
       </div>

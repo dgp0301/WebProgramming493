@@ -1,4 +1,6 @@
 <template>
+<div class ="level section">
+<div class="level-item">
 <form>
     <div class="field">
     <p class="control has-icons-left has-icons-right">
@@ -27,6 +29,8 @@
     </p>
     </div>
 </form>
+</div>
+</div>
 </template>
 
 <script>
