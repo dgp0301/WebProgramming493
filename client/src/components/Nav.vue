@@ -43,12 +43,7 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <router-link to="/login" class="button is-light">Log in</router-link> 
-        </div>
+        <LoginBadge/>
       </div>
     </div>
   </div>
@@ -56,7 +51,11 @@
 </template>
 
 <script>
+import LoginBadge from "@/components/LoginBadge";
 export default {
+  components:{
+    LoginBadge
+  },
   data: ()=> ({
     isActive: false
   }),

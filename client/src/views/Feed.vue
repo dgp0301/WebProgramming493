@@ -6,9 +6,10 @@
             <div class= "column is-two-thirds">
                 <Post v-for="(x, i) in posts"
                 :key="i"
-                :post="x"/>
+                :i="i"
+                :post="x"  />
             </div>
-            <div class=" column is-one-third">
+            <div class=" column is-one-third" @mouseenter="error">
                 <Sidebar/>
             </div>
         </div>
@@ -19,6 +20,7 @@
 import Sidebar from "@/components/Sidebar.vue";
 import Post from "@/components/Post.vue";
 import {posts} from "@/models/feed";
+import session from "@/models/session";
 
 export default {
     data(){
@@ -29,6 +31,11 @@ export default {
     components:{
         Sidebar,
         Post
+    },
+    methods: {
+        error(){
+            session.addNotification('Something went wrong', 'danger')
+        }
     }
 }
 </script>
