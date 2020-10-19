@@ -11,10 +11,10 @@ app.get('/',(req,res) => {
 
 app.use('/users',users);
 
-app.use( (err, req, res, next)=>{
+app.use( (err, req, res, next) =>{
     console.log(err);
-    res.status(eer.status || 500).send({ message: err.message })
-})
+    res.status(err.status || 500).send( { message: err.message } )
+} )
 
 app.listen(port,() => {
     console.log(`Example app listening at http://localhost:${port}`)
