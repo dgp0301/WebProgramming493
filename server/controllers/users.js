@@ -6,6 +6,7 @@ const users = require('../models/users');
 
 const router = express.Router();
 router.get("/", (req, res) =>{
+    throw {message: "This is a fake error"}
     res.send( users.getAll() );
 })
 .get('/search',(req,res)=>{
