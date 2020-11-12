@@ -2,7 +2,7 @@
     "name": "webprogamming493",
     "scripts": {
         "dev": "nodemon --watch server/index.js",
-        "start": "nodemon server/index.js"
+        "start": "node server/index.js"
     },
     "repository": {
         "type": "git",
