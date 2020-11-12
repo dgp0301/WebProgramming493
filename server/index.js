@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 
 //middle ware
 app.use(express.json());
-app.use(express.static(__dirname + '/../docs/'))
+app.use('/', express.static(__dirname + '/../docs/'));
 
 
 //authentication
