@@ -7,9 +7,6 @@ const users = require('./controllers/users');
 const app = express()
 const port = process.env.PORT || 3000;
 
-console.log(process.env.REST_CLASS);
-
-
 //middle ware
 app.use(express.json());
 app.use(express.static(__dirname + '/../docs/'))
