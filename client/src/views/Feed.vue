@@ -19,14 +19,17 @@
 <script>
 import Sidebar from "@/components/Sidebar.vue";
 import Post from "@/components/Post.vue";
-import {posts} from "@/models/feed";
+import {getPosts} from "@/models/feed";
 import session from "@/models/session";
 
 export default {
     data(){
         return{
-            posts
+            posts: []
         }
+    },
+    async created(){
+        this.posts = await getPosts();
     },
     components:{
         Sidebar,
