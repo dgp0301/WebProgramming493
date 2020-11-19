@@ -3,41 +3,50 @@ const path = require('path');
 require('dotenv').config();
 
 const users = require('./controllers/users');
+const posts = require('./controllers/posts');
+const comments = require('./controllers/comments');
+const reactions = require('./controllers/reactions');
 
 const app = express()
 const port = process.env.PORT || 3000;
 
-//middle ware
+console.log(process.env.BEST_CLASS);
+
+//  Middleware
 app.use(express.json());
-app.use('/public', express.static(__dirname + '/public/'));
-app.use('/', express.static(__dirname + '/../docs/'));
+app.use('/public',express.static( __dirname + '/public/'))
+app.use(express.static( __dirname + '/../docs/'))
 
 
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
-
-//authentication
-app.use(function(req,res,next){
-    const arr = (req.headers.authorization || "").split(" ");
-    if(arr.length > 1 && arr[1]!=null){
-        req.userId = +arr[1];
-    }
-    next();
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
 });
 
+//  Authentication
+app.use(function(req, res, next) {
+  const arr = (req.headers.authorization || "").split(" ");
+  if(arr.length > 1 && arr[1] != null){
+      req.userId = +arr[1];
+  }
+  next();
+});
 
-//API
-app.get('/hello',(req,res) => {
-    res.send('Hello Hudson Valley! You requested '+ req.url)
+//  API
+app.get('/hello', (req, res, next) => {
+  res.send('Hello Hudson Valley! You requested ' + req.url)
 })
 
-app.use('/users',users);
+app.use('/users', users);
+app.use('/posts', posts);
+app.use('/comments', comments);
+app.use('/reactions', reactions);
 
-app.get('*',(req,res,next)=>{
-    res.sendFile( path.join(__dirname + '/../docs/index.html') )
+app.get('*', (req, res, next) => {
+    const filename = path.join(__dirname, '/../docs/index.html');
+    console.log(filename);
+    res.sendFile( filename );
 })
 
 app.use( (err, req, res, next) =>{
@@ -46,8 +55,8 @@ app.use( (err, req, res, next) =>{
 } )
 
 
-//init
-app.listen(port,() => {
-    console.log(`Example app listening at http://localhost:${port}`)
-})
 
+//  Init
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
