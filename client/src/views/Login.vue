@@ -26,6 +26,12 @@
         <button class="button is-success" @click.prevent="login">
         Login
         </button>
+        <button class="button is-primary" @click.prevent="fblogin">
+        FB Login
+        </button>
+        <button class="button is-warning" @click.prevent="googleLogin">
+        Google Login
+        </button>
     </p>
     </div>
 </form>
@@ -46,10 +52,41 @@ export default {
             }
             session.addNotification('Yay! You logged in','primary');
             this.$router.push('feed');
+        },
+        fblogin(){
+            FB.login( function(authInfo){
+                console.log(authInfo)
+                FB.api("me?fields=id,name,email,profile-pic", x=> console.log(x));
+            }, { scope: 'public_profile,email,user-photos' } )
+        },
+        googleLogin(){
+            
         }
     }
 
 }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '371215270830283',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v9.0'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
 </script>
 
 <style>
